@@ -5,17 +5,17 @@ import StyleGuide from 'rsg-components/StyleGuide';
 import {
 	getInfoFromHash,
 	filterComponentExamples,
+	filterSectionExamples,
 	filterComponentsInSectionsByExactName,
 	findSection,
 	processSections,
 	setSlugs,
 	slugger,
 } from './utils/utils';
-import './polyfills';
-import './styles';
+import slots from './rsg-components/slots';
 
 // Examples code revision to rerender only code examples (not the whole page) when code changes
-let codeKey = 0;
+let codeRevision = 0;
 
 function renderStyleguide() {
 	const styleguide = require('!!../loaders/styleguide-loader!./index.js');
@@ -46,10 +46,15 @@ function renderStyleguide() {
 			isolatedSection = true;
 		}
 
-		// If a single component is filtered and a fenced block index is specified hide the other examples
-		if (filteredComponents.length === 1 && isFinite(targetIndex)) {
-			filteredComponents[0] = filterComponentExamples(filteredComponents[0], targetIndex);
-			isolatedExample = true;
+		// If a single component or section is filtered and a fenced block index is specified hide all other examples
+		if (isFinite(targetIndex)) {
+			if (filteredComponents.length === 1) {
+				filteredComponents[0] = filterComponentExamples(filteredComponents[0], targetIndex);
+				isolatedExample = true;
+			} else if (sections.length === 1) {
+				sections[0] = filterSectionExamples(sections[0], targetIndex);
+				isolatedExample = true;
+			}
 		}
 	}
 
@@ -59,8 +64,9 @@ function renderStyleguide() {
 
 	ReactDOM.render(
 		<StyleGuide
-			codeKey={codeKey}
+			codeRevision={codeRevision}
 			config={styleguide.config}
+			slots={slots}
 			welcomeScreen={styleguide.welcomeScreen}
 			patterns={styleguide.patterns}
 			sections={sections}
@@ -77,7 +83,7 @@ window.addEventListener('hashchange', renderStyleguide);
 /* istanbul ignore if */
 if (module.hot) {
 	module.hot.accept('!!../loaders/styleguide-loader!./index.js', () => {
-		codeKey += 1;
+		codeRevision += 1;
 		renderStyleguide();
 	});
 }
