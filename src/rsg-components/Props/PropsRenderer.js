@@ -95,9 +95,9 @@ function renderEnum(prop) {
 		return <span>{getType(prop).value}</span>;
 	}
 
-	const values = getType(prop).value.map(({ value }) => (
+	const values = getType(prop).value.map(({ value }) =>
 		<Code key={value}>{showSpaces(unquote(value))}</Code>
-	));
+	);
 	return <span>One of: <Group separator=", " inline>{values}</Group></span>;
 }
 
@@ -186,9 +186,9 @@ export function PropsRenderer({ classes, props }) {
 			return <span>{getType(prop).value}</span>;
 		}
 
-		const values = getType(prop).value.map(value => (
+		const values = getType(prop).value.map(value =>
 			<Code key={value.name} className={classes.type}>{renderType(value)}</Code>
-		));
+		);
 		return <span>One of type: <Group separator=", " inline>{values}</Group></span>;
 	}
 

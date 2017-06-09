@@ -1,8 +1,7 @@
-import './polyfills';
-import './styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import isFinite from 'lodash/isFinite';
+import StyleGuide from 'rsg-components/StyleGuide';
 import {
 	getInfoFromHash,
 	filterComponentExamples,
@@ -12,7 +11,8 @@ import {
 	setSlugs,
 	slugger,
 } from './utils/utils';
-import StyleGuide from 'rsg-components/StyleGuide';
+import './polyfills';
+import './styles';
 
 // Examples code revision to rerender only code examples (not the whole page) when code changes
 let codeKey = 0;

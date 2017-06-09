@@ -208,7 +208,7 @@ module.exports = {
 				console.log('Loading webpack config from:');
 				console.log(file);
 				console.log();
-				return require(file);
+				return require(file); //eslint-disable-line
 			}
 
 			console.log(
