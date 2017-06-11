@@ -18,7 +18,7 @@ import slots from './rsg-components/slots';
 let codeRevision = 0;
 
 function renderStyleguide() {
-	const styleguide = require('!!../loaders/styleguide-loader!./index.js');
+	const styleguide = require('!!../loaders/styleguide-loader!./index.js'); // eslint-disable-line
 
 	let sections = processSections(styleguide.sections);
 
