@@ -13,6 +13,8 @@ import {
 	slugger,
 } from './utils/utils';
 import slots from './rsg-components/slots';
+import './polyfills';
+import './styles';
 
 // Examples code revision to rerender only code examples (not the whole page) when code changes
 let codeRevision = 0;
