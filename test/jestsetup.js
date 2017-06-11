@@ -3,7 +3,6 @@
 // Make Enzyme functions available in all test files without importing
 import { shallow, render, mount } from 'enzyme';
 import noop from 'lodash/noop';
-// Get class names from styles function
 import keymirror from 'keymirror';
 import * as theme from '../src/styles/theme';
 
@@ -11,6 +10,7 @@ global.shallow = shallow;
 global.render = render;
 global.mount = mount;
 
+// Get class names from styles function
 global.classes = styles => keymirror(styles(theme));
 
 // Skip createElement warnings but fail tests on any other warning
