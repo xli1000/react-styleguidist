@@ -1,8 +1,10 @@
+/* eslint-disable import/first */
+
 import './polyfills';
-import React from 'react'; // eslint-disable-line import/first
-import ReactDOM from 'react-dom'; // eslint-disable-line import/first
-import isFinite from 'lodash/isFinite'; // eslint-disable-line import/first
-import StyleGuide from 'rsg-components/StyleGuide'; // eslint-disable-line import/first
+import React from 'react';
+import ReactDOM from 'react-dom';
+import isFinite from 'lodash/isFinite';
+import StyleGuide from 'rsg-components/StyleGuide';
 import {
 	getInfoFromHash,
 	filterComponentExamples,
