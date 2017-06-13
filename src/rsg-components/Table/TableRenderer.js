@@ -6,6 +6,7 @@ export const styles = ({ space, color, fontFamily, fontSize }) => ({
 	table: {
 		width: '100%',
 		borderCollapse: 'collapse',
+		marginBottom: space[4],
 	},
 	tableHead: {
 		borderBottom: [[1, color.border, 'solid']],
@@ -18,6 +19,7 @@ export const styles = ({ space, color, fontFamily, fontSize }) => ({
 		fontFamily: fontFamily.base,
 		fontWeight: 'bold',
 		fontSize: fontSize.small,
+		whiteSpace: 'nowrap',
 	},
 	cell: {
 		color: color.base,
@@ -28,10 +30,12 @@ export const styles = ({ space, color, fontFamily, fontSize }) => ({
 		fontFamily: fontFamily.base,
 		fontSize: fontSize.small,
 		'&:last-child': {
+			isolate: false,
 			width: '99%',
 			paddingRight: 0,
 		},
 		'& p:last-child': {
+			isolate: false,
 			marginBottom: 0,
 		},
 	},
