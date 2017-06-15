@@ -14,7 +14,7 @@ const ComponentsListRenderer = ({ items }) => (
 			))}
 		</div>
 	) : (
-		null
+		<span />
 	)
 );
 
